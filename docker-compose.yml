@@ -1,0 +1,16 @@
+version: '3'
+
+services: 
+  redis-nodejs:
+    image: redis:6.0.9-alpine
+    container_name: redis-nodejs
+    command: ["redis-server", "--appendonly", "no"]
+    ports: 
+      - "6379:6379"
+    expose:
+      - "6379"
+    # volumes: 
+    #   - "./redisData:/data" # --appendonly yes
+
+# docker run --name redis -p 6379:6379 redis:6.0.9-alpine redis-server --appendonly no
+# docker exec -it redis redis-cli
